@@ -19,3 +19,10 @@ while True:
 
     print("Inputs:", _sdl2.audio.get_audio_device_names(True))
     print("Outputs:", _sdl2.audio.get_audio_device_names(False))
+
+    mixer.init(devicename = 'CABLE-A Input (VB-Audio Virtual Cable A)') # Initialize it with the correct device
+    mixer.music.load("text.mp3") # Load the mp3
+    mixer.music.play() # Play it
+
+    while mixer.music.get_busy():  # wait for music to finish playing
+        time.sleep(1)
